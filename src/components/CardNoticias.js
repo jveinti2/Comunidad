@@ -1,41 +1,29 @@
-import { View, Text, TouchableOpacity, FlatList } from "react-native";
+import { Text, FlatList, View, TouchableOpacity } from "react-native";
 import React from "react";
-import { useState, useEffect } from "react";
-import { getNoticiasApi } from "../api/noticias";
 
-export default function CardNoticias() {
-  useEffect(() => {
-    (async () => {
-      await loadNoticias();
-    })();
-  }, []);
-
-  const loadNoticias = async () => {
-    try {
-      const response = await getNoticiasApi();
-      console.log(response);
-    } catch (error) {
-      throw error;
-    }
-  };
+export default function CardNoticias(props) {
+  const { noticias } = props;
 
   return (
     <FlatList
-      data={loadNoticias}
-      renderItem={({ item }) => <Text>{item.title}</Text>}
+      data={noticias}
+      showsVerticalScrollIndicator={false}
+      keyExtractor={() => Math.random().toString()}
+      renderItem={({ item }) => (
+        <View className="bg-white rounded-lg shadow-md p-4 m-2">
+          <Text className="text-xl font-bold mb-2">{item.author}</Text>
+          <Text className="text-gray-600 mb-2">{item.author}</Text>
+          <Text className="text-gray-800">{item.author}</Text>
+          <View className="flex flex-row gap-2">
+            <TouchableOpacity className="bg-blue-500 text-white mt-2 p-2 rounded">
+              <Text className="text-center">{item.author}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity className="bg-green-500 text-white mt-2 p-2 rounded">
+              <Text className="text-center">{item.author}</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
     />
-
-    // <View className="bg-white rounded-lg shadow-md p-4 m-2">
-    //   <Text className="text-xl font-bold mb-2">title</Text>
-    //   <Text className="text-base mb-4">description</Text>
-    //   <TouchableOpacity
-    //     onPress={() => {
-    //       loadNoticias();
-    //     }}
-    //     className="bg-blue-500 rounded-md p-2"
-    //   >
-    //     <Text className="text-white font-semibold">Ver más</Text>
-    //   </TouchableOpacity>
-    // </View>
   );
 }
