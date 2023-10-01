@@ -11,15 +11,15 @@ export default function CardNoticias(props) {
       keyExtractor={() => Math.random().toString()}
       renderItem={({ item }) => (
         <View className="bg-white rounded-lg shadow-md p-4 m-2">
-          <Text className="text-xl font-bold mb-2">{item.author}</Text>
-          <Text className="text-gray-600 mb-2">{item.author}</Text>
-          <Text className="text-gray-800">{item.author}</Text>
+          <Text className="text-xl font-bold mb-2">{item.titulo}</Text>
+          <Text className="text-gray-600 mb-2">{item.contenido}</Text>
+          <Text className="text-gray-800">{item.titulo}</Text>
           <View className="flex flex-row gap-2">
             <TouchableOpacity className="bg-blue-500 text-white mt-2 p-2 rounded">
-              <Text className="text-center">{item.author}</Text>
+              <Text className="text-center">{item.titulo}</Text>
             </TouchableOpacity>
             <TouchableOpacity className="bg-green-500 text-white mt-2 p-2 rounded">
-              <Text className="text-center">{item.author}</Text>
+              <Text className="text-center">{item.titulo}</Text>
             </TouchableOpacity>
           </View>
         </View>

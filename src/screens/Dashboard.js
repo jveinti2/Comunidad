@@ -7,28 +7,21 @@ import { getNoticiasApi } from "../api/noticias";
 export default function Dashboard() {
   const [noticias, setNoticias] = useState([]);
 
-  useEffect(() => {
-    (async () => {
-      await loadNoticias();
-    })();
-  }, []);
-
   const loadNoticias = async () => {
-    try {
-      const response = await getNoticiasApi();
-      const noticiasArray = [];
+    const noticiasArray = [];
+    const res = await fetch("http://10.0.2.2:8000/api/noticias/");
+    const data = await res.json();
 
-      response.map((noticia) => {
-        noticiasArray.push({
-          author: noticia.author,
-        });
-      });
+    data.noticias.forEach((item) => {
+      noticiasArray.push(item);
+    });
 
-      setNoticias(noticiasArray);
-    } catch (error) {
-      throw error;
-    }
+    setNoticias(noticiasArray);
   };
+
+  useEffect(() => {
+    loadNoticias();
+  }, []);
 
   return (
     <SafeAreaView className="bg-emerald-200 h-full">
