@@ -1,6 +1,7 @@
-import { Text, FlatList, View, TouchableOpacity } from "react-native";
+import { Text, FlatList, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
-
+import BtnChat from "./BtnChat";
+import BtnConfirm from "./BtnConfirm";
 export default function CardNoticias(props) {
   const { noticias } = props;
 
@@ -10,17 +11,25 @@ export default function CardNoticias(props) {
       showsVerticalScrollIndicator={false}
       keyExtractor={() => Math.random().toString()}
       renderItem={({ item }) => (
-        <View className="bg-white rounded-lg shadow-md p-4 m-2">
-          <Text className="text-xl font-bold mb-2">{item.titulo}</Text>
-          <Text className="text-gray-600 mb-2">{item.contenido}</Text>
-          <Text className="text-gray-800">{item.titulo}</Text>
-          <View className="flex flex-row gap-2">
-            <TouchableOpacity className="bg-blue-500 text-white mt-2 p-2 rounded">
-              <Text className="text-center">{item.titulo}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity className="bg-green-500 text-white mt-2 p-2 rounded">
-              <Text className="text-center">{item.titulo}</Text>
-            </TouchableOpacity>
+        <View className="bg-white rounded-lg shadow-md p-2 m-2">
+          <View className="flex flex-row gap-1 items-center">
+            <Image
+              source={require("../../assets/avatar.jpg")}
+              className="rounded-full h-7 w-7"
+            />
+            <Text className="text-gray-800">{item.autor}</Text>
+          </View>
+          <View className="px-1">
+            <Text className="text-xl font-bold mb-2">{item.titulo}</Text>
+            <Text className="text-gray-600 mb-2">{item.contenido}</Text>
+            <View className="flex flex-row gap-2">
+              <View>
+                <BtnChat />
+              </View>
+              <View>
+                <BtnConfirm />
+              </View>
+            </View>
           </View>
         </View>
       )}

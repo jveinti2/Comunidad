@@ -2,7 +2,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import CardNoticias from "../components/CardNoticias";
-import { getNoticiasApi } from "../api/noticias";
 
 export default function Dashboard() {
   const [noticias, setNoticias] = useState([]);
@@ -24,7 +23,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <SafeAreaView className="bg-emerald-200 h-full">
+    <SafeAreaView className="bg-cyan-600 h-full">
       <View>
         <CardNoticias noticias={noticias} />
       </View>
