@@ -17,9 +17,9 @@ export default function Account() {
               source={require("../../assets/avatar.jpg")}
             />
             <View className="">
-              <Text>Nombre Completo</Text>
+              <Text>{auth.name}</Text>
               <Text>Edad</Text>
-              <Text>Otros datos</Text>
+              <Text>{auth.email}</Text>
             </View>
           </View>
           <View className="rounded p-2">
