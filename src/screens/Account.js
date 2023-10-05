@@ -1,11 +1,11 @@
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, Button } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import LoginForm from "../components/Auth/LoginForm";
 import useAuth from "../hooks/useAuth";
 
 export default function Account() {
-  const { auth } = useAuth();
+  const { auth, logout } = useAuth();
 
   return (
     <View>
@@ -34,6 +34,9 @@ export default function Account() {
               <Text className="text-white font-normal">Interes 1</Text>
               <Text className="text-white font-normal">Interes 1</Text>
             </View>
+          </View>
+          <View>
+            <Button title="Salir" onPress={() => logout()} />
           </View>
         </View>
       ) : (

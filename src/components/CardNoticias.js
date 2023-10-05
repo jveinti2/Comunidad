@@ -2,6 +2,7 @@ import { Text, FlatList, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import BtnChat from "./BtnChat";
 import BtnConfirm from "./BtnConfirm";
+import BtnLike from "./BtnLike";
 export default function CardNoticias(props) {
   const { noticias } = props;
 
@@ -22,12 +23,17 @@ export default function CardNoticias(props) {
           <View className="px-1">
             <Text className="text-xl font-bold mb-2">{item.titulo}</Text>
             <Text className="text-gray-600 mb-2">{item.contenido}</Text>
-            <View className="flex flex-row gap-2">
-              <View>
-                <BtnChat />
+            <View className="flex flex-row gap-2 justify-between items-center">
+              <View className="flex flex-row gap-2">
+                <View>
+                  <BtnChat />
+                </View>
+                <View>
+                  <BtnConfirm />
+                </View>
               </View>
               <View>
-                <BtnConfirm />
+                <BtnLike />
               </View>
             </View>
           </View>
