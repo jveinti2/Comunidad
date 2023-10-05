@@ -1,6 +1,7 @@
 import React from "react";
 import Account from "../screens/Account";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Text } from "react-native";
 
 const Stack = createStackNavigator();
 
